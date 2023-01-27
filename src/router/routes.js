@@ -1,9 +1,7 @@
 export default [
   {
-    path: '/',
-    method: 'get',
-    handler: (req, res) => {
-      res.send('Hello World!');
-    }
-  }
+    path: "/",
+    method: "get",
+    handler: (await import("../app/controllers/IndexController.js")).default,
+  },
 ];
