@@ -1,16 +1,20 @@
 import Connection from "./connection.js";
 import Provider from "./Provider.js";
 
-const [connect, closeCon, conn] = Connection();
-await connect();
-const [query, insert, update, remove] = Provider(conn);
+let [connect, closeCon ] = Connection();
+let query, insert, update, remove
+
+await connect()
+  .then((conn)=>{
+    [query, insert, update, remove] = Provider(conn);
+  })
+  .catch((err)=>(console.log(err)));
 
 export default {
-  connect,
-  closeCon,
   query,
   insert,
   update,
   remove,
-  conn,
+  closeCon,
+  connect
 }

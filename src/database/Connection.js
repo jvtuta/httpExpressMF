@@ -16,6 +16,7 @@ const connection = () => {
 
   const connect = async () => {
     conn = await mysql2.createConnection(dbConfig);
+    return conn;
   };
   
   const closeCon = async () => {
