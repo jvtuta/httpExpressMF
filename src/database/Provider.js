@@ -1,4 +1,6 @@
 export default function (conn) {
+  if(!conn) throw new Error('Connection is not defined');
+  
   const query = async (sql, params) => {
     const [rows] = await conn.execute(sql, params);
     return rows;

@@ -23,7 +23,7 @@ const connection = () => {
     await conn.end();
   };
 
-  return [ connect, conn, closeCon ];
+  return [ connect,  closeCon, conn ];
 };
 
 export default connection;
