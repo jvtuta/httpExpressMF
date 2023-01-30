@@ -1,15 +1,20 @@
 import mysql2 from "mysql2/promise";
+import dotenv from "dotenv";
+
+const config = dotenv.config();
+
+config.parsed ? process.env = config.parsed : null;
 
 const dbConfig = {
   host: process.env.HOST || "localhost",
-  user: process.env.USER || "root",
-  database: process.env.DB || 'central-drogafuji',
+  user: process.env.DBUSER || "root",
+  database: process.env.DATABASE,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
 }
 
-process.env.PASS ? dbConfig.password = process.env.PASS : null;
+process.env.PASS ? dbConfig.password = process.env.DBPASS : null;
 
 const connection = () => {
   let conn;
