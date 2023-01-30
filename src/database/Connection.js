@@ -3,7 +3,7 @@ import mysql2 from "mysql2/promise";
 const dbConfig = {
   host: process.env.HOST || "localhost",
   user: process.env.USER || "root",
-  database: process.env.DB,
+  database: process.env.DB || 'central-drogafuji',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
